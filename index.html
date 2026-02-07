@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lord of the Wings | Best Wings & Burgers in Cairo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Lord of the Wings | Best Wings & Burgers in Cairo</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -38,16 +37,10 @@
             user-select: none; pointer-events: auto; cursor: pointer;
             animation: floatUp linear infinite; transition: transform 0.2s;
         }
-        .floater:hover { opacity: 0.8; transform: scale(1.2); }
-        .floater:active { transform: scale(0); opacity: 0; }
-        @keyframes floatUp {
-            0% { transform: translateY(110vh) rotate(0deg); }
-            100% { transform: translateY(-10vh) rotate(360deg); }
-        }
 
         /* --- Header --- */
         header { 
-            background: rgba(18, 18, 18, 0.95); padding: 0.5rem 5%; 
+            background: rgba(18, 18, 18, 0.95); padding: 0.8rem 5%; 
             position: fixed; width: 100%; z-index: 1000; 
             display: flex; justify-content: space-between; align-items: center; 
             border-bottom: 3px solid var(--primary);
@@ -58,10 +51,14 @@
             background: black; padding: 5px 10px; border-radius: 8px;
             display: flex; align-items: center; border: 2px solid var(--primary);
         }
-        .logo-img { height: 50px; width: auto; display: block; }
+        .logo-img { height: 40px; width: auto; display: block; }
 
+        /* Desktop Nav */
+        nav { display: flex; align-items: center; }
         nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; }
         nav a:hover { color: var(--primary); }
+        
+        .menu-toggle { display: none; font-size: 1.5rem; color: white; cursor: pointer; margin-left: 20px; }
 
         /* --- Hero Section --- */
         .hero { 
@@ -75,24 +72,22 @@
         .btn { 
             background: var(--primary); color: white; padding: 15px 40px; text-decoration: none; 
             border-radius: 5px; font-weight: bold; transition: 0.3s; border: 2px solid var(--primary); 
-            text-transform: uppercase; font-family: 'Oswald', sans-serif;
+            text-transform: uppercase; font-family: 'Oswald', sans-serif; display: inline-block;
         }
-        .btn:hover { background: transparent; color: var(--primary); box-shadow: 0 0 30px rgba(230, 57, 70, 0.6); }
 
         /* --- Floating Cart Button --- */
         .cart-float {
-            position: fixed; bottom: 30px; right: 30px;
+            position: fixed; bottom: 20px; right: 20px;
             background: var(--secondary); color: black;
-            width: 70px; height: 70px; border-radius: 50%;
+            width: 65px; height: 65px; border-radius: 50%;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             box-shadow: 0 5px 20px rgba(255, 183, 3, 0.4);
             cursor: pointer; z-index: 2000; transition: 0.3s;
         }
-        .cart-float:hover { transform: scale(1.1); }
         .cart-count { font-weight: bold; font-size: 1.2rem; font-family: 'Oswald'; }
-        .cart-label { font-size: 0.7rem; font-weight: bold; }
+        .cart-label { font-size: 0.6rem; font-weight: bold; }
 
-        /* --- CART SIDEBAR (New) --- */
+        /* --- CART SIDEBAR --- */
         .cart-sidebar {
             position: fixed; top: 0; right: 0; width: 100%; max-width: 400px; height: 100%;
             background: #1a1a1a; z-index: 3000; transform: translateX(100%);
@@ -101,134 +96,93 @@
             display: flex; flex-direction: column;
         }
         .cart-sidebar.open { transform: translateX(0); }
-        
-        .cart-header {
-            padding: 20px; background: #222; border-bottom: 1px solid #333;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .cart-header h3 { font-size: 1.5rem; color: var(--secondary); margin: 0; }
-        .close-cart { cursor: pointer; font-size: 1.5rem; color: #fff; transition: 0.3s; }
-        .close-cart:hover { color: var(--primary); }
-
+        .cart-header { padding: 20px; background: #222; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
         .cart-items { flex-grow: 1; overflow-y: auto; padding: 20px; }
-        
-        .cart-item {
-            background: #252525; padding: 15px; border-radius: 8px; margin-bottom: 15px;
-            display: flex; justify-content: space-between; align-items: center;
-            border-left: 3px solid var(--primary);
-        }
-        .cart-item-details h4 { font-size: 1rem; margin-bottom: 5px; color: white; }
-        .cart-item-details p { font-size: 0.9rem; color: #aaa; margin: 0; }
-        
+        .cart-item { background: #252525; padding: 15px; border-radius: 8px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--primary); }
         .cart-controls { display: flex; align-items: center; gap: 10px; }
-        .qty-btn { 
-            background: #444; color: white; border: none; width: 25px; height: 25px; 
-            border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
-        }
-        .qty-btn:hover { background: var(--secondary); color: black; }
-        .item-qty { font-weight: bold; font-family: 'Oswald'; }
-
+        .qty-btn { background: #444; color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
         .cart-footer { padding: 20px; background: #222; border-top: 1px solid #333; }
-        .cart-total { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; }
-        .checkout-btn {
-            background: var(--success); color: white; width: 100%; padding: 15px;
-            border: none; border-radius: 5px; font-weight: bold; font-size: 1rem;
-            text-transform: uppercase; cursor: pointer; transition: 0.3s;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-        }
-        .checkout-btn:hover { background: #218c7e; }
+        .checkout-btn { background: var(--success); color: white; width: 100%; padding: 15px; border: none; border-radius: 5px; font-weight: bold; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; }
 
-        /* --- Sauce Meter Section --- */
+        /* --- Sections --- */
+        .section { padding: 80px 8%; position: relative; z-index: 1; }
         .sauce-guide { padding: 60px 8%; text-align: center; background: #1a1a1a; }
         .meter-container { display: flex; justify-content: center; gap: 10px; margin-top: 30px; flex-wrap: wrap; }
-        .meter-item {
-            background: #333; padding: 15px 25px; border-radius: 5px; flex: 1; min-width: 150px;
-            border-bottom: 5px solid #555; position: relative;
-        }
-        .meter-item h4 { margin-bottom: 5px; }
+        .meter-item { background: #333; padding: 15px 25px; border-radius: 5px; flex: 1; min-width: 140px; border-bottom: 5px solid #555; position: relative; margin-bottom: 10px;}
         .meter-item.mild { border-color: #2a9d8f; }
         .meter-item.hot { border-color: #e76f51; }
         .meter-item.suicide { border-color: #e63946; }
-        .pepper-icon { position: absolute; top: -15px; right: 10px; font-size: 1.5rem; }
 
-        /* --- Menu Grid --- */
-        .section { padding: 80px 8%; position: relative; z-index: 1; }
         .section-title { text-align: center; font-size: 3.5rem; margin-bottom: 50px; color: var(--light); text-transform: uppercase; }
         .section-title span { color: var(--primary); }
         
         .menu-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
-        .tab-btn { 
-            background: transparent; color: #888; border: 1px solid #333; 
-            padding: 10px 25px; cursor: pointer; border-radius: 0; 
-            font-weight: bold; transition: 0.3s; text-transform: uppercase;
-        }
-        .tab-btn.active, .tab-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .tab-btn { background: transparent; color: #888; border: 1px solid #333; padding: 10px 20px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; flex: 1 1 auto; white-space: nowrap; }
+        .tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         
-        .card { 
-            background: var(--card-bg); border-radius: 8px; overflow: hidden; 
-            transition: 0.3s; border: 1px solid #333; position: relative;
-            display: flex; flex-direction: column;
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--secondary); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        
-        /* Badges */
-        .badge {
-            position: absolute; top: 15px; right: 15px;
-            padding: 5px 10px; font-size: 0.7rem; font-weight: bold;
-            border-radius: 4px; text-transform: uppercase; font-family: 'Oswald';
-        }
+        .card { background: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid #333; display: flex; flex-direction: column; position: relative; }
+        .badge { position: absolute; top: 15px; right: 15px; padding: 5px 10px; font-size: 0.7rem; font-weight: bold; border-radius: 4px; text-transform: uppercase; font-family: 'Oswald'; }
         .badge-hot { background: var(--primary); color: white; }
         .badge-best { background: var(--secondary); color: black; }
-
-        .card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-        .card h3 { color: white; margin-bottom: 10px; font-size: 1.6rem; }
-        .card p { font-size: 0.95rem; color: #aaa; margin-bottom: 25px; font-weight: 300; }
+        .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card h3 { color: white; margin-bottom: 10px; font-size: 1.4rem; }
         .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; border-top: 1px solid #333; padding-top: 20px; }
-        .price { font-weight: 700; color: var(--secondary); font-size: 1.3rem; font-family: 'Oswald'; }
-        
-        .add-btn { 
-            background: transparent; color: white; width: 40px; height: 40px; 
-            border: 1px solid #555; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            cursor: pointer; transition: 0.3s; 
-        }
-        .add-btn:hover { background: var(--success); border-color: var(--success); }
+        .price { font-weight: 700; color: var(--secondary); font-size: 1.2rem; font-family: 'Oswald'; }
+        .add-btn { background: transparent; color: white; width: 40px; height: 40px; border: 1px solid #555; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
 
         /* --- Locations --- */
         .locations { background: #1a1a1a; }
-        .loc-box-original { text-align: center; padding: 20px; }
+        .loc-box-original { text-align: center; padding: 20px; background: #222; border-radius: 10px; margin-bottom: 15px; }
 
         /* --- Reviews --- */
         .reviews-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-        .review-card {
-            background: #252525; padding: 30px; border-radius: 15px;
-            max-width: 350px; position: relative; border-bottom: 4px solid var(--secondary);
-        }
+        .review-card { background: #252525; padding: 30px; border-radius: 15px; max-width: 350px; width: 100%; border-bottom: 4px solid var(--secondary); }
         .review-header { display: flex; align-items: center; margin-bottom: 15px; }
-        .avatar {
-            width: 50px; height: 50px; background: #333; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; margin-right: 15px;
-            font-weight: bold; color: var(--secondary);
-        }
-        .stars { color: var(--secondary); font-size: 0.8rem; }
-        .review-text { font-style: italic; color: #ccc; }
+        .avatar { width: 50px; height: 50px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; color: var(--secondary); }
 
         /* --- Delivery CTA --- */
-        .delivery-cta {
-            background: var(--primary); padding: 50px; text-align: center;
-        }
-        .delivery-cta h2 { color: white; margin-bottom: 20px; }
-        .delivery-partners { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
-        .partner-btn { background: white; color: black; padding: 10px 20px; border-radius: 4px; font-weight: bold; text-decoration: none; }
+        .delivery-cta { background: var(--primary); padding: 50px 20px; text-align: center; }
+        .delivery-partners { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+        .partner-btn { background: white; color: black; padding: 12px 25px; border-radius: 4px; font-weight: bold; text-decoration: none; display: inline-block; }
 
         footer { background: black; padding: 50px 10%; text-align: center; border-top: 1px solid #333; color: #777; font-size: 0.9rem; }
         .socials { margin-bottom: 20px; }
-        .socials a { color: white; font-size: 1.5rem; margin: 0 10px; transition: 0.3s; }
-        .socials a:hover { color: var(--secondary); }
+        .socials a { color: white; font-size: 1.5rem; margin: 0 10px; }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 3.5rem; } header { padding: 1rem; } nav { display: none; } }
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 768px) {
+            header { padding: 0.8rem 1rem; }
+            
+            /* Hamburger Menu Logic */
+            .menu-toggle { display: block; }
+            nav {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: #111; flex-direction: column; padding: 20px 0;
+                display: none; border-bottom: 2px solid var(--primary);
+            }
+            nav.active { display: flex; }
+            nav a { margin: 15px 0; width: 100%; text-align: center; display: block; }
+            
+            /* Typography Scaling */
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title { font-size: 2.5rem; margin-bottom: 30px; }
+            
+            /* Layout Adjustments */
+            .section { padding: 50px 5%; }
+            .grid { grid-template-columns: 1fr; } /* 1 Column on mobile */
+            .meter-container { flex-direction: column; }
+            
+            /* Cart Adjustments */
+            .cart-sidebar { max-width: 85%; }
+            
+            /* Button Sizing for Touch */
+            .btn { width: 100%; margin-bottom: 10px; margin-left: 0 !important; }
+            .delivery-partners { flex-direction: column; }
+            .partner-btn { width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -243,7 +197,7 @@
     <div id="cart-sidebar" class="cart-sidebar">
         <div class="cart-header">
             <h3>Your Order</h3>
-            <span class="close-cart" onclick="toggleCart()">&times;</span>
+            <span class="close-cart" onclick="toggleCart()" style="font-size: 2rem; padding: 10px;">&times;</span>
         </div>
         <div id="cart-items" class="cart-items">
             <p style="text-align: center; color: #777; margin-top: 50px;">Your cart is empty.</p>
@@ -254,7 +208,7 @@
                 <span id="cart-total-price">0 EGP</span>
             </div>
             <button class="checkout-btn" onclick="checkout()">
-                <i class="fab fa-whatsapp"></i> Checkout on WhatsApp
+                <i class="fab fa-whatsapp"></i> Checkout
             </button>
         </div>
     </div>
@@ -265,22 +219,27 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0fKjvrnQNGjmoWTcIHTrBccL8gmrmP0N5cQ&s" alt="Lord of the Wings Logo" class="logo-img"> 
             </div>
         </div>
-        <nav>
-            <a href="#menu">Menu</a>
-            <a href="#locations">Locations</a>
-            <a href="#reviews">Reviews</a>
-            <a href="tel:16195" style="background: var(--primary); padding: 8px 15px; border-radius: 5px; margin-left: 20px;">
+        <div style="display: flex; align-items: center;">
+            <a href="tel:16195" style="background: var(--primary); color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-right: 10px; font-size: 0.9rem;">
                 <i class="fas fa-phone-alt"></i> 16195
             </a>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <nav id="navbar">
+            <a href="#menu" onclick="toggleMobileMenu()">Menu</a>
+            <a href="#locations" onclick="toggleMobileMenu()">Locations</a>
+            <a href="#reviews" onclick="toggleMobileMenu()">Reviews</a>
         </nav>
     </header>
 
     <section class="hero">
         <h1>Just Wing It</h1>
         <p>Cairo's Original Buffalo Wings & Authentic Burgers</p>
-        <div style="margin-top: 20px;">
+        <div style="margin-top: 20px; width: 100%;">
             <a href="#menu" class="btn">View Menu</a>
-            <a href="#delivery" class="btn" style="background: transparent; margin-left: 10px;">Delivery</a>
+            <a href="#delivery" class="btn" style="background: transparent; border: 2px solid white;">Delivery</a>
         </div>
     </section>
 
@@ -504,22 +463,30 @@
         </div>
     </section>
 
-    <section id="locations" class="section locations">
-        <h2 class="section-title">Find Us Across Cairo</h2>
-        <div class="grid">
-            <div class="loc-box-original">
-                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
-                <p><strong>Sheikh Zayed</strong><br>The Isle Mall, 26th July Corridor</p>
-            </div>
-            <div class="loc-box-original">
-                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
-                <p><strong>New Cairo</strong><br>Cairo Festival City Mall, 3rd Floor</p>
-            </div>
-            <div class="loc-box-original">
-                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
-                <p><strong>Tagammoa</strong><br>Point 90 Mall, 2nd Floor</p>
-            </div>
-        </div>
+    <section id="locations" class="section" style="background: #181818;">
+    <h2 class="section-title">Find Us</h2>
+    <div style="display:flex; justify-content:center; gap: 20px; margin-top: 20px;">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d441938.9129946428!2d30.9497181!3d30.0756297!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458594a8c353f87%3A0x8791f81ef931537a!2sLord%20of%20the%20Wings!5e0!3m2!1sen!2seg!4v1770379662869!5m2!1sen!2seg" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d441938.9129946428!2d30.9497181!3d30.0756297!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458575289642df9%3A0x9fda6ffce7a05acf!2sLord%20of%20the%20wings!5e0!3m2!1sen!2seg!4v1770379787182!5m2!1sen!2seg" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
     </section>
 
     <section id="reviews" class="section">
@@ -572,6 +539,12 @@
     </footer>
 
     <script>
+        // --- MOBILE MENU LOGIC (New) ---
+        function toggleMobileMenu() {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('active');
+        }
+
         // --- CART LOGIC ---
         let cart = [];
 
@@ -580,7 +553,6 @@
         }
 
         function addToCart(name, price) {
-            // Check if item already exists
             let item = cart.find(i => i.name === name);
             if (item) {
                 item.qty++;
@@ -589,18 +561,10 @@
             }
             updateCartUI();
             
-            // Animation for visual feedback
+            // Pulse Animation
             const btn = event.currentTarget;
             btn.style.transform = "scale(1.3)";
             setTimeout(() => { btn.style.transform = "scale(1)"; }, 200);
-            
-            // Open cart to show item added (optional, can remove if annoying)
-            // document.getElementById('cart-sidebar').classList.add('open');
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
         }
 
         function changeQty(index, change) {
@@ -662,7 +626,6 @@
             
             message += `\nTotal: ${total} EGP`;
             
-            // Encode for WhatsApp URL
             const url = `https://wa.me/201000000000?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
