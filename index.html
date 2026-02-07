@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Lord of the Wings | Best Wings & Burgers in Cairo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lord of the Wings | Best Wings & Burgers in Cairo</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -136,6 +137,14 @@
         .locations { background: #1a1a1a; }
         .loc-box-original { text-align: center; padding: 20px; background: #222; border-radius: 10px; margin-bottom: 15px; }
 
+        /* --- Social Bar (New) --- */
+        .social-bar { text-align: center; padding: 40px; background: #000; }
+        .insta-btn { 
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            padding: 12px 30px; border-radius: 50px; color: white; text-decoration: none; font-weight: bold;
+        }
+
         /* --- Reviews --- */
         .reviews-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
         .review-card { background: #252525; padding: 30px; border-radius: 15px; max-width: 350px; width: 100%; border-bottom: 4px solid var(--secondary); }
@@ -154,8 +163,6 @@
         /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 768px) {
             header { padding: 0.8rem 1rem; }
-            
-            /* Hamburger Menu Logic */
             .menu-toggle { display: block; }
             nav {
                 position: absolute; top: 100%; left: 0; width: 100%;
@@ -165,20 +172,13 @@
             nav.active { display: flex; }
             nav a { margin: 15px 0; width: 100%; text-align: center; display: block; }
             
-            /* Typography Scaling */
             .hero h1 { font-size: 3rem; }
             .hero p { font-size: 1.1rem; }
             .section-title { font-size: 2.5rem; margin-bottom: 30px; }
-            
-            /* Layout Adjustments */
             .section { padding: 50px 5%; }
-            .grid { grid-template-columns: 1fr; } /* 1 Column on mobile */
+            .grid { grid-template-columns: 1fr; }
             .meter-container { flex-direction: column; }
-            
-            /* Cart Adjustments */
             .cart-sidebar { max-width: 85%; }
-            
-            /* Button Sizing for Touch */
             .btn { width: 100%; margin-bottom: 10px; margin-left: 0 !important; }
             .delivery-partners { flex-direction: column; }
             .partner-btn { width: 100%; }
@@ -221,7 +221,7 @@
         </div>
         <div style="display: flex; align-items: center;">
             <a href="tel:16195" style="background: var(--primary); color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-right: 10px; font-size: 0.9rem;">
-                <i class="fas fa-phone-alt"></i> 16195
+                <i class="fas fa-phone-alt"></i> 01125555335
             </a>
             <div class="menu-toggle" onclick="toggleMobileMenu()">
                 <i class="fas fa-bars"></i>
@@ -235,8 +235,8 @@
     </header>
 
     <section class="hero">
-        <h1>Just Wing It</h1>
-        <p>Cairo's Original Buffalo Wings & Authentic Burgers</p>
+        <h1>It's not just about wings!</h1>
+        <p>The Original Canadian Wings & Burgers in Egypt</p>
         <div style="margin-top: 20px; width: 100%;">
             <a href="#menu" class="btn">View Menu</a>
             <a href="#delivery" class="btn" style="background: transparent; border: 2px solid white;">Delivery</a>
@@ -389,7 +389,7 @@
                 <div class="card-content">
                     <div>
                         <h3>Canadian Poutine</h3>
-                        <p>Fries, squeaky cheese curds, rich brown gravy.</p>
+                        <p>Authentic Quebec recipe with squeaky cheese curds & gravy.</p>
                     </div>
                     <div class="card-footer">
                         <span class="price">120 EGP</span>
@@ -454,39 +454,33 @@
         </div>
     </section>
 
-    <section id="delivery" class="delivery-cta">
-        <h2>Order for Delivery</h2>
-        <p>Stay home. We'll bring the heat to you.</p>
-        <div class="delivery-partners">
-            <a href="#" class="partner-btn"><i class="fas fa-motorcycle"></i> ElMenus</a>
-            <a href="#" class="partner-btn"><i class="fas fa-utensils"></i> Talabat</a>
-        </div>
+    <section class="social-bar">
+        <h3 style="margin-bottom: 20px;">Join the #LordOfTheWings Squad</h3>
+        <a href="https://www.instagram.com/lordofthewingsegypt/" class="insta-btn" target="_blank">
+            <i class="fab fa-instagram" style="font-size: 1.5rem;"></i> Follow on Instagram
+        </a>
     </section>
 
-    <section id="locations" class="section" style="background: #181818;">
-    <h2 class="section-title">Find Us</h2>
-    <div style="display:flex; justify-content:center; gap: 20px; margin-top: 20px;">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d441938.9129946428!2d30.9497181!3d30.0756297!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458594a8c353f87%3A0x8791f81ef931537a!2sLord%20of%20the%20Wings!5e0!3m2!1sen!2seg!4v1770379662869!5m2!1sen!2seg" 
-            width="600" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d441938.9129946428!2d30.9497181!3d30.0756297!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458575289642df9%3A0x9fda6ffce7a05acf!2sLord%20of%20the%20wings!5e0!3m2!1sen!2seg!4v1770379787182!5m2!1sen!2seg" 
-            width="600" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-</section>
+    <section id="locations" class="section locations">
+        <h2 class="section-title">Find Us</h2>
+        <div class="grid">
+            <div class="loc-box-original">
+                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                <p><strong>The Isle Mall</strong><br>Sheikh Zayed - 26th July Corridor</p>
+            </div>
+            <div class="loc-box-original">
+                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                <p><strong>Cairo Festival City</strong><br>New Cairo - 3rd Floor Food Court</p>
+            </div>
+            <div class="loc-box-original">
+                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                <p><strong>Point 90 Mall</strong><br>New Cairo - 2nd Floor</p>
+            </div>
+            <div class="loc-box-original">
+                <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                <p><strong>Walk of Cairo</strong><br>Sheikh Zayed</p>
+            </div>
+        </div>
     </section>
 
     <section id="reviews" class="section">
@@ -528,18 +522,26 @@
         </div>
     </section>
 
+    <section id="delivery" class="delivery-cta">
+        <h2>Order for Delivery</h2>
+        <p>Stay home. We'll bring the heat to you.</p>
+        <div class="delivery-partners">
+            <a href="#" class="partner-btn"><i class="fas fa-motorcycle"></i> ElMenus</a>
+            <a href="#" class="partner-btn"><i class="fas fa-utensils"></i> Talabat</a>
+        </div>
+    </section>
+
     <footer>
         <div class="socials">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/LordOfTheWingsEgypt/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/lordofthewingsegypt/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
-        <p style="margin-bottom: 10px;">Open Daily: 12:00 PM - 2:00 AM</p>
-        <p>© 2026 Lord of the Wings Egypt (Concept design by Ahmed Eldabah).</p>
+        <p style="margin-bottom: 10px;">Hotline: 16195</p>
+        <p>© 2026 Lord of the Wings Egypt.</p>
     </footer>
 
     <script>
-        // --- MOBILE MENU LOGIC (New) ---
+        // --- MOBILE MENU LOGIC ---
         function toggleMobileMenu() {
             const nav = document.getElementById('navbar');
             nav.classList.toggle('active');
@@ -626,6 +628,8 @@
             
             message += `\nTotal: ${total} EGP`;
             
+            // Replace with their actual WhatsApp number if you find it, 
+            // otherwise using a placeholder or the hotline number format
             const url = `https://wa.me/201000000000?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
